@@ -8,6 +8,14 @@ main{margin-left:255px;padding-top:72px}.view{display:none;padding:25px;max-widt
 .stats{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin-bottom:11px}.stat,.panel{background:#fff;border:1px solid var(--line);border-radius:9px}.stat{padding:13px}.stat small{font-size:7px;color:var(--muted)}.stat strong{display:block;font-size:21px;margin-top:5px}.grid2{display:grid;grid-template-columns:1.35fr 1fr;gap:11px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.panelhead{padding:11px 12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.panelhead h2{font-size:10px;margin:0}.panelbody{padding:12px}.row{padding:9px 11px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px}.row:last-child{border:0}.row strong{font-size:9px}.row small{display:block;color:var(--muted);font-size:7px;margin-top:3px}.status{font-size:7px;border-radius:99px;padding:4px 7px;background:#eef1f3}.status.ok{background:#e9f6ef;color:var(--green)}.status.warn{background:#fff4df;color:#8b5d11}.workspace{display:grid;grid-template-columns:350px 1fr;gap:11px}.searchbar{display:flex;gap:6px;margin-bottom:10px}input,select,textarea{width:100%;border:1px solid #cfd3d6;border-radius:6px;padding:8px;font-size:9px;background:#fff}textarea{min-height:75px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.field label{display:block;font-size:7px;font-weight:850;margin-bottom:4px}.dl{display:grid;grid-template-columns:125px 1fr;gap:6px;font-size:8px}.dl dt{color:var(--muted)}.dl dd{margin:0;font-weight:650}.actions{margin-top:12px}
 .problem{margin:10px 0;padding:12px;border-radius:8px;background:#fff5f5;border:1px solid #f0cfd1}
 .problem b{font-size:9px}.problem p{font-size:8px;line-height:1.5;margin:5px 0 0;color:#5d6267}
+.casefacts{margin-top:10px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.casefacts .title{padding:8px 10px;background:#f6f7f8;font-size:8px;font-weight:900}
+.factgrid{display:grid;grid-template-columns:1fr 1fr}
+.fact{padding:8px 10px;border-top:1px solid var(--line);font-size:8px}
+.fact:nth-child(odd){border-right:1px solid var(--line)}
+.fact small{display:block;color:var(--muted);font-size:7px;margin-bottom:3px}
+.fact b{font-size:8.5px}
+.casehint{margin-top:8px;padding:8px 10px;background:#eef4fa;border-left:3px solid #46769e;border-radius:5px;font-size:8px;line-height:1.45}
 .checklist{display:grid;gap:6px;margin-top:10px}.checkitem{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:7px;padding:8px;font-size:8px}.checkitem input{width:auto;margin-top:1px}
 .tasktabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.tasktabs button{font-size:7px}.casecard{border-left:4px solid var(--red)}.toast{position:fixed;z-index:90;right:18px;bottom:18px;background:#202327;color:#fff;padding:10px 13px;border-radius:8px;font-size:8px;opacity:0;transform:translateY(8px);transition:.2s}.toast.show{opacity:1;transform:none}.loader{height:3px;background:linear-gradient(90deg,transparent,var(--red),transparent);background-size:200% 100%;animation:load 1s linear infinite}@keyframes load{to{background-position:-200% 0}}.modalbg{position:fixed;z-index:80;inset:0;background:#0008;display:grid;place-items:center;padding:20px}.hidden{display:none!important}.modal{width:min(780px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:11px;padding:17px}.modal h2{margin:0 0 5px;font-size:16px}.modal p{font-size:8px;color:var(--muted)}.modalactions{display:flex;justify-content:flex-end;gap:7px;margin-top:12px}
 @media(max-width:1200px){.stats{grid-template-columns:repeat(3,1fr)}.grid2,.grid3,.workspace{grid-template-columns:1fr}}
@@ -37,7 +45,7 @@ function send(x){x.ts=Date.now();localStorage.setItem("stadtserviceDisplay",JSON
 function view(v){$$("nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===v));$$(".view").forEach(x=>x.classList.remove("active"));$("#view-"+v).classList.add("active")}
 function render(){let hs=[["Wartend",s.queue.length],["Bedient",s.served],["Termine",s.appointments.length],["Offene Vorgänge",s.cases.filter(x=>x.status!=="erledigt").length],["Fundstücke",s.found.filter(x=>x.status==="lagernd").length],["Gebühren",money(s.revenue)]];$("#homeStats").innerHTML=hs.map(x=>`<div class="stat"><small>${x[0]}</small><strong>${x[1]}</strong></div>`).join("");$("#statsBox").innerHTML=hs.map(x=>`<div class="stat"><small>${x[0]}</small><strong>${x[1]}</strong></div>`).join("");$("#qbadge").textContent=s.queue.length;$("#deskState").textContent=s.paused?"Pause":"Schalter geöffnet";$("#pauseBtn").textContent=s.paused?"Pause beenden":"Pause";
 const qr=x=>`<div class="row"><div><strong>${x.n} · ${x.name}</strong><small>${x.concern}</small></div><button class="btn" data-action="call" data-num="${x.n}">Aufrufen</button></div>`;$("#homeQueue").innerHTML=s.queue.slice(0,6).map(qr).join("")||`<div class="panelbody">Keine wartenden Personen.</div>`;$("#queueList").innerHTML=s.queue.map(x=>`<div class="panel" style="margin-bottom:7px">${qr(x)}</div>`).join("");
-$("#activeBox").innerHTML=s.active?`<b style="font-size:16px">${s.active.n} · ${s.active.name}</b><p style="font-size:9px;color:#777">${s.active.concern}</p><div class="problem"><b>Was der Kunde sagt</b><p>${s.active.problem||problemFor(s.active.concern,s.active.name)}</p></div><div class="checklist">${requirementsFor(s.active.concern).map((x,i)=>`<label class="checkitem"><input type="checkbox" class="activeCheck"> <span>${x}</span></label>`).join("")}</div><div class="tasktabs"><button class="btn" data-action="openActiveCitizen">Bürgerregister</button><button class="btn" data-action="goRelevant">Passendes Fachsystem</button><button class="btn" data-action="showActive">Kundeninfo anzeigen</button><button class="btn" data-action="showVerification">Überprüfung am Display</button><button class="btn green" data-action="finish">Vorgang abschließen</button></div>`:"Kein Kunde am Schalter.";
+$("#activeBox").innerHTML=s.active?`<b style="font-size:16px">${s.active.n} · ${s.active.name}</b><p style="font-size:9px;color:#777">${s.active.concern}</p><div class="problem"><b>Was der Kunde sagt</b><p>${s.active.problem||problemFor(s.active.concern,s.active.name)}</p></div>${factsHtml(s.active)}<div class="checklist">${requirementsFor(s.active.concern).map((x,i)=>`<label class="checkitem"><input type="checkbox" class="activeCheck"> <span>${x}</span></label>`).join("")}</div><div class="tasktabs"><button class="btn" data-action="openActiveCitizen">Bürgerregister</button><button class="btn" data-action="goRelevant">Passendes Fachsystem</button><button class="btn" data-action="showActive">Kundeninfo anzeigen</button><button class="btn" data-action="showVerification">Überprüfung am Display</button><button class="btn green" data-action="finish">Vorgang abschließen</button></div>`:"Kein Kunde am Schalter.";
 $("#homeCases").innerHTML=s.cases.filter(x=>x.status!=="erledigt").slice(0,4).map(x=>`<div class="row"><div><strong>${x.id} · ${x.name}</strong><small>${x.type}</small></div><span class="status warn">${x.status}</span></div>`).join("");renderAppointments();renderCases();renderCash()}
 function problemFor(con,name){const m={
 "Meldeangelegenheit":`${name} ist vor wenigen Tagen umgezogen. Die alte Adresse ist noch im Register gespeichert. Der Kunde möchte den Hauptwohnsitz ändern und hat Unterlagen dabei.`,
@@ -49,6 +57,64 @@ function problemFor(con,name){const m={
 "Terminproblem":`${name} behauptet, heute einen Termin zu haben. Suche im Terminplan und gleiche Uhrzeit sowie Anliegen ab.`,
 "Vollmacht":`${name} erledigt etwas für eine andere Person. Prüfe im Register, ob ein Hinweis auf eine Vollmacht hinterlegt ist.`
 };return m[con]||`${name} benötigt Unterstützung bei einem Bürgerservice-Vorgang.`}
+
+function caseFacts(con,c){
+ const others=s.citizens.filter(x=>x.id!==c.id);
+ const other=others[(parseInt(c.id.slice(1),10)*7)%others.length];
+ const district=(c.address.match(/\b(1\d{3})\b/)||["","1070"])[1];
+ const facts={
+   "Meldeangelegenheit":[
+     ["Bürger-ID",c.id],["Bisherige Adresse",c.address],
+     ["Neue Adresse","Mariahilfer Straße "+(40+(parseInt(c.id.slice(-2),10)%80))+", 1070 Wien"],
+     ["Einzugsdatum","2026-08-"+String(10+(parseInt(c.id.slice(-1),10)%12)).padStart(2,"0")],
+     ["Wohnsitzart","Hauptwohnsitz"],["Mitgebracht","Mietvertrag + Lichtbildausweis"]
+   ],
+   "Parkberechtigung":[
+     ["Bürger-ID",c.id],["Wohnadresse",c.address],
+     ["Kennzeichen","W-"+(12000+parseInt(c.id.slice(-3),10))+"A"],
+     ["Beantragter Bezirk",district],["Dauer","1 Jahr"],["Mitgebracht","Zulassungsschein + Ausweis"]
+   ],
+   "Fundservice":[
+     ["Gesucht","Schlüsselbund"],["Verlustort",["Praterstern","Karlsplatz","Schwedenplatz"][parseInt(c.id.slice(-1),10)%3]],
+     ["Verlustdatum","2026-08-"+String(15+(parseInt(c.id.slice(-1),10)%6)).padStart(2,"0")],
+     ["Merkmale",["schwarz","mit rotem Anhänger","3 Schlüssel + Chip"][parseInt(c.id.slice(-1),10)%3]],
+     ["Kontakt",c.phone],["Hinweis","Kunde ist sich beim Fundort ziemlich sicher"]
+   ],
+   "Dokumentenabholung":[
+     ["Bürger-ID",c.id],["Abzuholendes Dokument",c.doc],
+     ["Vorgelegter Ausweis","Führerschein"],["Abholhinweis","Benachrichtigung erhalten"],
+     ["Geburtsdatum",c.dob],["Kontakt",c.email]
+   ],
+   "Meldebestätigung":[
+     ["Bürger-ID",c.id],["Gespeicherte Adresse",c.address],
+     ["Gewünschtes Dokument","Meldebestätigung"],["Verwendungszweck","Bank / Vertrag"],
+     ["Vorgelegter Ausweis",c.doc],["E-Mail",c.email]
+   ],
+   "Allgemeine Auskunft":[
+     ["Thema","Wohnsitz & Dokumente"],["Frage","Welche Unterlagen brauche ich für eine Adressänderung?"],
+     ["Aktuelle Adresse",c.address],["Bürger-ID",c.id],["Kontakt",c.phone],["Gewünscht","Kurze Erklärung am Display"]
+   ],
+   "Terminproblem":[
+     ["Bürger-ID",c.id],["Behauptete Uhrzeit","10:15"],["Anliegen","Meldebestätigung"],
+     ["Name im Termin",c.name],["Mitgebracht","Termin-E-Mail am Handy"],["Aufgabe","Terminplan abgleichen"]
+   ],
+   "Vollmacht":[
+     ["Vorsprechende Person",c.name],["Bürger-ID Vertreter",c.id],
+     ["Betroffene Person",other.name],["Bürger-ID betroffene Person",other.id],
+     ["Gewünschte Leistung","Meldebestätigung"],["Mitgebracht","Vollmacht + eigener Lichtbildausweis"],
+     ["Behaupteter Umfang","Meldeangelegenheiten"],["Hinweis","Prüfe beim Datensatz der betroffenen Person, ob ein Vollmachthinweis vorhanden ist"]
+   ]
+ };
+ return facts[con]||[["Bürger-ID",c.id],["Name",c.name],["Anliegen",con]];
+}
+function factsHtml(active){
+ const c=s.citizens.find(x=>x.id===active.citizen);
+ if(!c)return "";
+ const fs=active.facts||caseFacts(active.concern,c);
+ active.facts=fs;
+ return `<div class="casefacts"><div class="title">Vom Kunden angegebene Informationen</div><div class="factgrid">${fs.map(f=>`<div class="fact"><small>${f[0]}</small><b>${f[1]}</b></div>`).join("")}</div></div><div class="casehint"><b>Deine Aufgabe:</b> Diese Angaben nicht einfach übernehmen. Öffne die passenden Systeme und prüfe, ob die Angaben zu den hinterlegten Daten passen.</div>`;
+}
+
 function requirementsFor(con){const m={
 "Meldeangelegenheit":["Identität im Bürgerregister prüfen","bisherige Adresse vergleichen","Nachweis für die neue Unterkunft prüfen","neue Daten am Kundendisplay bestätigen lassen"],
 "Parkberechtigung":["Bürger-ID und Wohnadresse prüfen","Kennzeichen erfassen","Bezirk mit Adresse vergleichen","Gebühr am Kundendisplay anzeigen"],
@@ -59,12 +125,14 @@ function requirementsFor(con){const m={
 "Terminproblem":["Name/ID suchen","Terminplan prüfen","Anliegen und Uhrzeit abgleichen"],
 "Vollmacht":["betroffene Person feststellen","Vollmachthinweis prüfen","Umfang des Anliegens erfassen"]
 };return m[con]||["Person identifizieren","Anliegen prüfen","Ergebnis dokumentieren"]}
-function spawn(){let c=s.citizens[Math.floor(Math.random()*s.citizens.length)],pool=["Meldeangelegenheit","Parkberechtigung","Fundservice","Dokumentenabholung","Meldebestätigung","Allgemeine Auskunft","Terminproblem","Vollmacht"],con=pool[Math.floor(Math.random()*pool.length)],n=String(50+s.queue.length+s.served).padStart(3,"0");s.queue.push({n:(con==="Fundservice"?"B-":"A-")+n,name:c.name,concern:con,citizen:c.id,problem:problemFor(con,c.name)});save();toast("Neuer Kunde in der Warteschlange")}
-function call(num){if(s.paused)return toast("Schalter ist in Pause");let i=s.queue.findIndex(x=>x.n===num);if(i<0)return;s.active=s.queue.splice(i,1)[0];s.active.problem=s.active.problem||problemFor(s.active.concern,s.active.name);save();send({mode:"call",number:s.active.n,counter:"04",name:s.active.name});setTimeout(()=>welcome(),3000)}
+function spawn(){let c=s.citizens[Math.floor(Math.random()*s.citizens.length)],pool=["Meldeangelegenheit","Parkberechtigung","Fundservice","Dokumentenabholung","Meldebestätigung","Allgemeine Auskunft","Terminproblem","Vollmacht"],con=pool[Math.floor(Math.random()*pool.length)],n=String(50+s.queue.length+s.served).padStart(3,"0");s.queue.push({n:(con==="Fundservice"?"B-":"A-")+n,name:c.name,concern:con,citizen:c.id,problem:problemFor(con,c.name),facts:caseFacts(con,c)});save();toast("Neuer Kunde in der Warteschlange")}
+function call(num){if(s.paused)return toast("Schalter ist in Pause");let i=s.queue.findIndex(x=>x.n===num);if(i<0)return;s.active=s.queue.splice(i,1)[0];s.active.problem=s.active.problem||problemFor(s.active.concern,s.active.name);
+let ac=s.citizens.find(x=>x.id===s.active.citizen);if(ac&&!s.active.facts)s.active.facts=caseFacts(s.active.concern,ac);
+save();send({mode:"call",number:s.active.n,counter:"04",name:s.active.name});setTimeout(()=>welcome(),3000)}
 function next(){if(s.queue.length)call(s.queue[0].n);else toast("Keine wartenden Kunden")}function finish(){if(!s.active)return;s.served++;send({mode:"success",title:"Vorgang abgeschlossen",text:"Vielen Dank für Ihren Besuch im Stadtservice."});s.active=null;save();setTimeout(ads,2400)}
 function openActiveCitizen(){if(!s.active)return;$("#citizenSearch").value=s.active.citizen;view("citizens");searchCitizen()}
-function showActive(){if(!s.active)return;send({mode:"service",title:s.active.concern,name:s.active.name,problem:s.active.problem||problemFor(s.active.concern,s.active.name),steps:requirementsFor(s.active.concern)})}
-function showVerification(){if(!s.active)return;let c=s.citizens.find(x=>x.id===s.active.citizen);send({mode:"verify",title:"Überprüfung erforderlich",subtitle:s.active.concern,person:c?c.name:s.active.name,fields:c?[["Bürger-ID",c.id],["Geburtsdatum",c.dob],["Adresse",c.address],["Dokument",c.doc+" · "+c.docStatus]]:[],checks:requirementsFor(s.active.concern)})}
+function showActive(){if(!s.active)return;send({mode:"service",title:s.active.concern,name:s.active.name,problem:s.active.problem||problemFor(s.active.concern,s.active.name),steps:requirementsFor(s.active.concern),facts:s.active.facts||caseFacts(s.active.concern,s.citizens.find(x=>x.id===s.active.citizen))})}
+function showVerification(){if(!s.active)return;let c=s.citizens.find(x=>x.id===s.active.citizen);send({mode:"verify",title:"Überprüfung erforderlich",subtitle:s.active.concern,person:c?c.name:s.active.name,fields:c?[["Bürger-ID",c.id],["Geburtsdatum",c.dob],["Adresse",c.address],["Dokument",c.doc+" · "+c.docStatus]]:[],provided:s.active.facts||caseFacts(s.active.concern,c),checks:requirementsFor(s.active.concern)})}
 function goRelevant(){if(!s.active)return;let m={"Meldeangelegenheit":"address","Parkberechtigung":"parking","Fundservice":"found","Dokumentenabholung":"documents","Meldebestätigung":"citizens","Terminproblem":"appointments","Vollmacht":"citizens","Allgemeine Auskunft":"citizens"};view(m[s.active.concern]||"citizens");if(s.active.concern==="Meldeangelegenheit")$("#addrId").value=s.active.citizen;if(s.active.concern==="Parkberechtigung")$("#parkId").value=s.active.citizen;if(["Meldebestätigung","Vollmacht","Allgemeine Auskunft"].includes(s.active.concern)){$("#citizenSearch").value=s.active.citizen;searchCitizen()}if(s.active.concern==="Dokumentenabholung")$("#docSearch").value=s.active.citizen}
 function searchCitizen(){let q=$("#citizenSearch").value.toLowerCase().trim();$("#citizenResults").innerHTML=`<div class="loader"></div>`;setTimeout(()=>{let r=s.citizens.filter(c=>[c.id,c.name,c.address,c.email].join(" ").toLowerCase().includes(q)).slice(0,12);$("#citizenResults").innerHTML=r.map(c=>`<div class="row"><div><strong>${c.name}</strong><small>${c.id} · ${c.address}</small></div><button class="btn" data-action="selectCitizen" data-id="${c.id}">Öffnen</button></div>`).join("")||"Keine Treffer."},450)}
 function selectCitizen(id){let c=s.citizens.find(x=>x.id===id);s.selectedCitizen=id;save();$("#citizenDetail").innerHTML=`<div class="panelhead"><h2>${c.name}</h2><span class="status ok">${c.id}</span></div><div class="panelbody"><dl class="dl"><dt>Geburtsdatum</dt><dd>${c.dob}</dd><dt>Adresse</dt><dd>${c.address}</dd><dt>Haushalt</dt><dd>${c.household}</dd><dt>Dokument</dt><dd>${c.doc} · ${c.docStatus}</dd><dt>Telefon</dt><dd>${c.phone}</dd><dt>E-Mail</dt><dd>${c.email}</dd><dt>Hinweis</dt><dd>${c.notes}</dd></dl><div class="actions"><button class="btn" data-action="citizenDisplay">Daten am Display</button><button class="btn red" data-action="useForAddress">Adressänderung</button></div></div>`}

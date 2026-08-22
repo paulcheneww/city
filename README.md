@@ -1,12 +1,19 @@
-# Stadtservice Wien V2
+# Stadtservice Wien V3
+
 Fiktive Bürgerservice-Simulation.
 
-V2 erweitert die Kundenfälle deutlich:
-- Kunden nennen ein konkretes Problem statt nur einer Kategorie.
-- Checklisten zeigen, was geprüft werden muss.
-- Mehr Eingaben und Fachsystem-Wechsel.
-- Kundendisplay: Aufruf geht nach 3 Sekunden zurück auf Willkommen.
-- Detaillierte Kundeninformation mit Problem + Prüfschritten.
-- Eigener Screen „Überprüfung erforderlich“ mit Personendaten und Prüfpunkten.
-- Bürgerregister, Termine, Vorgänge, Meldewesen, Parkservice, Fundservice, Dokumente und Kassa.
-- Mehrere lokale Wien-Bilder im Projekt.
+## Neu in V3
+Jeder Kundenfall enthält jetzt konkrete Informationen, die der Kunde dir tatsächlich sagt oder zeigt.
+Du musst nichts mehr erraten.
+
+Beispiele:
+- Parkberechtigung: Kennzeichen, Wohnadresse, gewünschter Bezirk, Dauer, mitgebrachte Unterlagen
+- Vollmacht: Vertreter, betroffene Person, beide Bürger-IDs, gewünschte Leistung, behaupteter Umfang der Vollmacht
+- Fundservice: Gegenstand, Verlustort, Datum, Merkmale
+- Meldeangelegenheit: alte und neue Adresse, Einzugsdatum, Wohnsitzart, Nachweis
+- Dokumentenabholung: Dokumenttyp, vorgelegter Ausweis, Benachrichtigung
+- Terminproblem: behauptete Terminzeit, Anliegen und Person
+
+Die Aufgabe ist jetzt: Angaben des Kunden mit den Daten in den Fachsystemen abgleichen.
+
+Das Kundendisplay kann die vom Kunden angegebenen Daten und die intern zu prüfenden Daten getrennt anzeigen.
