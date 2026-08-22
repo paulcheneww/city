@@ -1,30 +1,12 @@
-# Stadtservice Wien – Bürgerservice Simulator V1
+# Stadtservice Wien V2
+Fiktive Bürgerservice-Simulation.
 
-Fiktive Simulation, keine echte Behörde.
-
-## Enthalten
-- 60 synthetische Bürgerdatensätze
-- 30 Termine
-- 22 Fundgegenstände
-- 18 vorbereitete Vorgänge
-- Warteschlange / Aufrufsystem
-- Bürgerregister mit Suche
-- Adressänderung
-- Parkberechtigung und Gebühren
-- Fundservice
-- Dokumentenprüfung
-- Fallakten
-- Kassa / Statistik
-- Pause
-- separates Kundendisplay
-- Stadt-Werbe-/Informationsscreens
-- Aufruf-, Prüf-, Zahlungs- und Erfolgsanimationen
-
-## Start
-`index.html` öffnen und über "Kundendisplay öffnen" den zweiten Bildschirm starten.
-
-Für GitHub Pages einfach alle Dateien in ein Repository hochladen und Pages aktivieren.
-
-
-## Display-Bild
-Vienna/Stephansdom photo used in the customer display: Österreich Werbung / Julius Silver, sourced from austria.info for this local simulation.
+V2 erweitert die Kundenfälle deutlich:
+- Kunden nennen ein konkretes Problem statt nur einer Kategorie.
+- Checklisten zeigen, was geprüft werden muss.
+- Mehr Eingaben und Fachsystem-Wechsel.
+- Kundendisplay: Aufruf geht nach 3 Sekunden zurück auf Willkommen.
+- Detaillierte Kundeninformation mit Problem + Prüfschritten.
+- Eigener Screen „Überprüfung erforderlich“ mit Personendaten und Prüfpunkten.
+- Bürgerregister, Termine, Vorgänge, Meldewesen, Parkservice, Fundservice, Dokumente und Kassa.
+- Mehrere lokale Wien-Bilder im Projekt.
