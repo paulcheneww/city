@@ -1,11 +1,11 @@
 <!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Stadtservice Wien · Bürgerservice Simulator</title><style>
-*{box-sizing:border-box}:root{--red:#d71920;--dark:#1d2024;--bg:#f2f3f4;--card:#fff;--line:#dfe2e5;--muted:#72777d;--green:#21835a;--amber:#b97612}
+*{box-sizing:border-box}:root{--red:#d71920;--red2:#b30f17;--dark:#15191d;--dark2:#20252b;--bg:#edf1f3;--card:#fff;--line:#d9dee2;--muted:#6f7880;--green:#21835a;--amber:#b97612;--blue:#416d91}
 html,body{margin:0;min-height:100%;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:#202327}button,input,select,textarea{font:inherit}button{cursor:pointer}
 header{position:fixed;z-index:30;inset:0 0 auto 0;height:72px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 20px}.brand{display:flex;align-items:center;gap:11px}.mark{width:43px;height:43px;background:var(--red);color:#fff;border-radius:4px;display:grid;place-items:center;font-size:20px;font-weight:950}.brand b{font-size:14px}.brand small{display:block;color:var(--muted);font-size:8px;margin-top:3px}.top{display:flex;gap:7px}.pill{border:1px solid var(--line);border-radius:999px;padding:7px 10px;font-size:8px}.online:before{content:"";display:inline-block;width:7px;height:7px;background:#2c9b69;border-radius:50%;margin-right:5px}
 aside{position:fixed;left:0;top:72px;bottom:0;width:255px;background:var(--dark);padding:14px;color:#fff}nav{display:grid;gap:3px}nav button{display:grid;grid-template-columns:23px 1fr auto;align-items:center;border:0;background:transparent;color:#aeb3b8;border-radius:7px;padding:10px;text-align:left;font-size:9px}nav button:hover,nav button.active{background:#30343a;color:#fff}nav button.active{box-shadow:inset 3px 0 var(--red)}.badge{font-size:7px;background:#454a50;padding:2px 5px;border-radius:99px}.bottom{position:absolute;bottom:14px;left:14px;right:14px;display:grid;gap:6px}.bottom button{background:#2b2f34;border:1px solid #3a3f45;color:#fff;border-radius:7px;padding:9px;font-size:8px}
-main{margin-left:255px;padding-top:72px}.view{display:none;padding:25px;max-width:1700px;margin:auto}.view.active{display:block}.head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:16px}.eyebrow{font-size:8px;font-weight:900;color:var(--red);letter-spacing:.13em}.head h1{font-size:25px;margin:4px 0}.head p{font-size:9px;color:var(--muted);margin:0}.btns,.actions{display:flex;gap:7px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#fff;border-radius:7px;padding:9px 11px;font-size:8px;font-weight:800}.btn.red{background:var(--red);color:#fff;border-color:var(--red)}.btn.dark{background:#25282d;color:#fff;border-color:#25282d}.btn.green{background:#edf8f2;color:var(--green);border-color:#cce7d7}
-.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin-bottom:11px}.stat,.panel{background:#fff;border:1px solid var(--line);border-radius:9px}.stat{padding:13px}.stat small{font-size:7px;color:var(--muted)}.stat strong{display:block;font-size:21px;margin-top:5px}.grid2{display:grid;grid-template-columns:1.35fr 1fr;gap:11px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.panelhead{padding:11px 12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.panelhead h2{font-size:10px;margin:0}.panelbody{padding:12px}.row{padding:9px 11px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px}.row:last-child{border:0}.row strong{font-size:9px}.row small{display:block;color:var(--muted);font-size:7px;margin-top:3px}.status{font-size:7px;border-radius:99px;padding:4px 7px;background:#eef1f3}.status.ok{background:#e9f6ef;color:var(--green)}.status.warn{background:#fff4df;color:#8b5d11}.workspace{display:grid;grid-template-columns:350px 1fr;gap:11px}.searchbar{display:flex;gap:6px;margin-bottom:10px}input,select,textarea{width:100%;border:1px solid #cfd3d6;border-radius:6px;padding:8px;font-size:9px;background:#fff}textarea{min-height:75px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.field label{display:block;font-size:7px;font-weight:850;margin-bottom:4px}.dl{display:grid;grid-template-columns:125px 1fr;gap:6px;font-size:8px}.dl dt{color:var(--muted)}.dl dd{margin:0;font-weight:650}.actions{margin-top:12px}
+main{margin-left:255px;padding-top:72px}.view{display:none;padding:25px;max-width:1700px;margin:auto}.view.active{display:block}.head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:16px}.eyebrow{font-size:8px;font-weight:900;color:var(--red);letter-spacing:.13em}.head h1{font-size:25px;margin:4px 0}.head p{font-size:9px;color:var(--muted);margin:0}.btns,.actions{display:flex;gap:7px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 12px;font-size:8px;font-weight:850;transition:.15s}.btn:hover{transform:translateY(-1px);box-shadow:0 5px 12px #0000000e}.btn.red{background:var(--red);color:#fff;border-color:var(--red)}.btn.dark{background:#25282d;color:#fff;border-color:#25282d}.btn.green{background:#edf8f2;color:var(--green);border-color:#cce7d7}
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin-bottom:11px}.stat,.panel{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 24px rgba(20,28,32,.045)}.stat{padding:13px}.stat small{font-size:7px;color:var(--muted)}.stat strong{display:block;font-size:21px;margin-top:5px}.grid2{display:grid;grid-template-columns:1.35fr 1fr;gap:11px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.panelhead{padding:11px 12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.panelhead h2{font-size:10px;margin:0}.panelbody{padding:12px}.row{padding:9px 11px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px}.row:last-child{border:0}.row strong{font-size:9px}.row small{display:block;color:var(--muted);font-size:7px;margin-top:3px}.status{font-size:7px;border-radius:99px;padding:4px 7px;background:#eef1f3}.status.ok{background:#e9f6ef;color:var(--green)}.status.warn{background:#fff4df;color:#8b5d11}.workspace{display:grid;grid-template-columns:350px 1fr;gap:11px}.searchbar{display:flex;gap:6px;margin-bottom:10px}input,select,textarea{width:100%;border:1px solid #cfd3d6;border-radius:6px;padding:8px;font-size:9px;background:#fff}textarea{min-height:75px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.field label{display:block;font-size:7px;font-weight:850;margin-bottom:4px}.dl{display:grid;grid-template-columns:125px 1fr;gap:6px;font-size:8px}.dl dt{color:var(--muted)}.dl dd{margin:0;font-weight:650}.actions{margin-top:12px}
 .problem{margin:10px 0;padding:12px;border-radius:8px;background:#fff5f5;border:1px solid #f0cfd1}
 .problem b{font-size:9px}.problem p{font-size:8px;line-height:1.5;margin:5px 0 0;color:#5d6267}
 .casefacts{margin-top:10px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
@@ -16,6 +16,13 @@ main{margin-left:255px;padding-top:72px}.view{display:none;padding:25px;max-widt
 .fact small{display:block;color:var(--muted);font-size:7px;margin-bottom:3px}
 .fact b{font-size:8.5px}
 .casehint{margin-top:8px;padding:8px 10px;background:#eef4fa;border-left:3px solid #46769e;border-radius:5px;font-size:8px;line-height:1.45}
+.workcard{margin-top:12px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.workhead{padding:9px 11px;background:#f7f8f9;font-size:8px;font-weight:900}
+.workgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px}
+.workgrid .field.full{grid-column:1/-1}
+.decision{padding:10px;border-top:1px solid var(--line);background:#fafafa}
+.decision b{font-size:8px}
+
 .checklist{display:grid;gap:6px;margin-top:10px}.checkitem{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:7px;padding:8px;font-size:8px}.checkitem input{width:auto;margin-top:1px}
 .tasktabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.tasktabs button{font-size:7px}.casecard{border-left:4px solid var(--red)}.toast{position:fixed;z-index:90;right:18px;bottom:18px;background:#202327;color:#fff;padding:10px 13px;border-radius:8px;font-size:8px;opacity:0;transform:translateY(8px);transition:.2s}.toast.show{opacity:1;transform:none}.loader{height:3px;background:linear-gradient(90deg,transparent,var(--red),transparent);background-size:200% 100%;animation:load 1s linear infinite}@keyframes load{to{background-position:-200% 0}}.modalbg{position:fixed;z-index:80;inset:0;background:#0008;display:grid;place-items:center;padding:20px}.hidden{display:none!important}.modal{width:min(780px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:11px;padding:17px}.modal h2{margin:0 0 5px;font-size:16px}.modal p{font-size:8px;color:var(--muted)}.modalactions{display:flex;justify-content:flex-end;gap:7px;margin-top:12px}
 @media(max-width:1200px){.stats{grid-template-columns:repeat(3,1fr)}.grid2,.grid3,.workspace{grid-template-columns:1fr}}
@@ -45,7 +52,7 @@ function send(x){x.ts=Date.now();localStorage.setItem("stadtserviceDisplay",JSON
 function view(v){$$("nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===v));$$(".view").forEach(x=>x.classList.remove("active"));$("#view-"+v).classList.add("active")}
 function render(){let hs=[["Wartend",s.queue.length],["Bedient",s.served],["Termine",s.appointments.length],["Offene Vorgänge",s.cases.filter(x=>x.status!=="erledigt").length],["Fundstücke",s.found.filter(x=>x.status==="lagernd").length],["Gebühren",money(s.revenue)]];$("#homeStats").innerHTML=hs.map(x=>`<div class="stat"><small>${x[0]}</small><strong>${x[1]}</strong></div>`).join("");$("#statsBox").innerHTML=hs.map(x=>`<div class="stat"><small>${x[0]}</small><strong>${x[1]}</strong></div>`).join("");$("#qbadge").textContent=s.queue.length;$("#deskState").textContent=s.paused?"Pause":"Schalter geöffnet";$("#pauseBtn").textContent=s.paused?"Pause beenden":"Pause";
 const qr=x=>`<div class="row"><div><strong>${x.n} · ${x.name}</strong><small>${x.concern}</small></div><button class="btn" data-action="call" data-num="${x.n}">Aufrufen</button></div>`;$("#homeQueue").innerHTML=s.queue.slice(0,6).map(qr).join("")||`<div class="panelbody">Keine wartenden Personen.</div>`;$("#queueList").innerHTML=s.queue.map(x=>`<div class="panel" style="margin-bottom:7px">${qr(x)}</div>`).join("");
-$("#activeBox").innerHTML=s.active?`<b style="font-size:16px">${s.active.n} · ${s.active.name}</b><p style="font-size:9px;color:#777">${s.active.concern}</p><div class="problem"><b>Was der Kunde sagt</b><p>${s.active.problem||problemFor(s.active.concern,s.active.name)}</p></div>${factsHtml(s.active)}<div class="checklist">${requirementsFor(s.active.concern).map((x,i)=>`<label class="checkitem"><input type="checkbox" class="activeCheck"> <span>${x}</span></label>`).join("")}</div><div class="tasktabs"><button class="btn" data-action="openActiveCitizen">Bürgerregister</button><button class="btn" data-action="goRelevant">Passendes Fachsystem</button><button class="btn" data-action="showActive">Kundeninfo anzeigen</button><button class="btn" data-action="showVerification">Überprüfung am Display</button><button class="btn green" data-action="finish">Vorgang abschließen</button></div>`:"Kein Kunde am Schalter.";
+$("#activeBox").innerHTML=s.active?`<b style="font-size:16px">${s.active.n} · ${s.active.name}</b><p style="font-size:9px;color:#777">${s.active.concern}</p><div class="problem"><b>Was der Kunde sagt</b><p>${s.active.problem||problemFor(s.active.concern,s.active.name)}</p></div>${factsHtml(s.active)}${workFormHtml(s.active)}<div class="tasktabs"><button class="btn" data-action="openActiveCitizen">Bürgerregister</button><button class="btn" data-action="goRelevant">Fachsystem</button><button class="btn" data-action="showVerification">Prüfung am Display</button><button class="btn green" data-action="saveActiveWork">Zwischenspeichern</button><button class="btn red" data-action="finish">Vorgang abschließen</button></div>`:"Kein Kunde am Schalter.";
 $("#homeCases").innerHTML=s.cases.filter(x=>x.status!=="erledigt").slice(0,4).map(x=>`<div class="row"><div><strong>${x.id} · ${x.name}</strong><small>${x.type}</small></div><span class="status warn">${x.status}</span></div>`).join("");renderAppointments();renderCases();renderCash()}
 function problemFor(con,name){const m={
 "Meldeangelegenheit":`${name} ist vor wenigen Tagen umgezogen. Die alte Adresse ist noch im Register gespeichert. Der Kunde möchte den Hauptwohnsitz ändern und hat Unterlagen dabei.`,
@@ -115,6 +122,86 @@ function factsHtml(active){
  return `<div class="casefacts"><div class="title">Vom Kunden angegebene Informationen</div><div class="factgrid">${fs.map(f=>`<div class="fact"><small>${f[0]}</small><b>${f[1]}</b></div>`).join("")}</div></div><div class="casehint"><b>Deine Aufgabe:</b> Diese Angaben nicht einfach übernehmen. Öffne die passenden Systeme und prüfe, ob die Angaben zu den hinterlegten Daten passen.</div>`;
 }
 
+
+function workFormHtml(a){
+ const c=s.citizens.find(x=>x.id===a.citizen);
+ const facts=Object.fromEntries((a.facts||caseFacts(a.concern,c)).map(x=>[x[0],x[1]]));
+ if(a.concern==="Meldeangelegenheit")return `<div class="workcard"><div class="workhead">Meldeänderung erfassen</div><div class="workgrid">
+ <div class="field"><label>Neue Straße</label><input id="wf1" value="${(facts["Neue Adresse"]||"").split(",")[0]}"></div>
+ <div class="field"><label>PLZ / Ort</label><input id="wf2" value="${(facts["Neue Adresse"]||"").split(",").slice(1).join(",").trim()}"></div>
+ <div class="field"><label>Einzugsdatum</label><input id="wf3" type="date" value="${facts["Einzugsdatum"]||""}"></div>
+ <div class="field"><label>Wohnsitzart</label><select id="wf4"><option>Hauptwohnsitz</option><option>Nebenwohnsitz</option></select></div>
+ <div class="field full"><label>Interner Vermerk</label><textarea id="wfNote" placeholder="Was hast du geprüft?"></textarea></div></div>
+ <div class="decision"><b>Entscheidung</b><div class="actions"><button class="btn green" data-action="activeDecision" data-value="approve">Übernehmen</button><button class="btn" data-action="activeDecision" data-value="request">Unterlagen nachfordern</button></div></div></div>`;
+
+ if(a.concern==="Parkberechtigung")return `<div class="workcard"><div class="workhead">Parkberechtigung erfassen</div><div class="workgrid">
+ <div class="field"><label>Kennzeichen</label><input id="wf1" value="${facts["Kennzeichen"]||""}"></div>
+ <div class="field"><label>Bezirk</label><input id="wf2" value="${facts["Beantragter Bezirk"]||""}"></div>
+ <div class="field"><label>Dauer</label><select id="wf3"><option>1 Jahr</option><option>2 Jahre</option></select></div>
+ <div class="field"><label>Fahrzeugart</label><select id="wf4"><option>PKW</option><option>Motorrad</option></select></div>
+ <div class="field full"><label>Prüfnotiz</label><textarea id="wfNote" placeholder="Adresse, Zulassung, Kennzeichen ..."></textarea></div></div>
+ <div class="decision"><b>Entscheidung</b><div class="actions"><button class="btn green" data-action="activeDecision" data-value="approvepark">Bewilligen</button><button class="btn" data-action="activeDecision" data-value="rejectpark">Ablehnen</button></div></div></div>`;
+
+ if(a.concern==="Fundservice")return `<div class="workcard"><div class="workhead">Verlustmeldung erfassen</div><div class="workgrid">
+ <div class="field"><label>Gegenstand</label><input id="wf1" value="${facts["Gesucht"]||""}"></div>
+ <div class="field"><label>Verlustort</label><input id="wf2" value="${facts["Verlustort"]||""}"></div>
+ <div class="field"><label>Datum ca.</label><input id="wf3" type="date" value="${facts["Verlustdatum"]||""}"></div>
+ <div class="field"><label>Merkmale</label><input id="wf4" value="${facts["Merkmale"]||""}"></div>
+ <div class="field full"><label>Zusätzliche Beschreibung</label><textarea id="wfNote" placeholder="Weitere Merkmale"></textarea></div></div>
+ <div class="decision"><div class="actions"><button class="btn" data-action="searchFoundFromActive">Fundregister durchsuchen</button><button class="btn green" data-action="activeDecision" data-value="report">Verlustmeldung speichern</button></div></div></div>`;
+
+ if(a.concern==="Dokumentenabholung")return `<div class="workcard"><div class="workhead">Dokumentenausgabe</div><div class="workgrid">
+ <div class="field"><label>Dokument</label><input id="wf1" value="${facts["Abzuholendes Dokument"]||""}"></div>
+ <div class="field"><label>Vorgelegter Ausweis</label><select id="wf2"><option>Personalausweis</option><option>Reisepass</option><option>Führerschein</option></select></div>
+ <div class="field"><label>Identität</label><select id="wf3"><option>stimmt überein</option><option>unklar</option></select></div>
+ <div class="field"><label>Abholung</label><select id="wf4"><option>persönlich</option><option>Vertretung</option></select></div>
+ <div class="field full"><label>Ausgabevermerk</label><textarea id="wfNote" placeholder="z. B. Lichtbild geprüft"></textarea></div></div>
+ <div class="decision"><div class="actions"><button class="btn green" data-action="activeDecision" data-value="issue">Dokument ausgeben</button><button class="btn" data-action="activeDecision" data-value="hold">Nicht ausgeben</button></div></div></div>`;
+
+ if(a.concern==="Meldebestätigung")return `<div class="workcard"><div class="workhead">Meldebestätigung erstellen</div><div class="workgrid">
+ <div class="field"><label>Verwendungszweck</label><input id="wf1" value="${facts["Verwendungszweck"]||""}"></div>
+ <div class="field"><label>Ausgabeart</label><select id="wf2"><option>Papier</option><option>Digitale Kopie</option></select></div>
+ <div class="field"><label>Anzahl</label><input id="wf3" type="number" min="1" value="1"></div>
+ <div class="field"><label>Gebühr</label><input id="wf4" value="3,00 €"></div>
+ <div class="field full"><label>Vermerk</label><textarea id="wfNote"></textarea></div></div>
+ <div class="decision"><div class="actions"><button class="btn" data-action="previewCertificate">Vorschau am Display</button><button class="btn green" data-action="activeDecision" data-value="createcert">Bestätigung erstellen</button></div></div></div>`;
+
+ if(a.concern==="Terminproblem")return `<div class="workcard"><div class="workhead">Terminproblem bearbeiten</div><div class="workgrid">
+ <div class="field"><label>Behauptete Uhrzeit</label><input id="wf1" value="${facts["Behauptete Uhrzeit"]||""}"></div>
+ <div class="field"><label>Anliegen</label><input id="wf2" value="${facts["Anliegen"]||""}"></div>
+ <div class="field"><label>Gefundene Termin-ID</label><input id="wf3" placeholder="z. B. T-2304"></div>
+ <div class="field"><label>Neue Uhrzeit</label><input id="wf4" placeholder="z. B. 11:30"></div>
+ <div class="field full"><label>Lösung / Notiz</label><textarea id="wfNote"></textarea></div></div>
+ <div class="decision"><div class="actions"><button class="btn green" data-action="activeDecision" data-value="reschedule">Termin neu zuweisen</button><button class="btn" data-action="activeDecision" data-value="walkin">Als Laufkunde übernehmen</button></div></div></div>`;
+
+ if(a.concern==="Vollmacht")return `<div class="workcard"><div class="workhead">Vertretung bearbeiten</div><div class="workgrid">
+ <div class="field"><label>Betroffene Person</label><input id="wf1" value="${facts["Betroffene Person"]||""}"></div>
+ <div class="field"><label>Bürger-ID</label><input id="wf2" value="${facts["Bürger-ID betroffene Person"]||""}"></div>
+ <div class="field"><label>Gewünschte Leistung</label><input id="wf3" value="${facts["Gewünschte Leistung"]||""}"></div>
+ <div class="field"><label>Umfang Vollmacht</label><input id="wf4" value="${facts["Behaupteter Umfang"]||""}"></div>
+ <div class="field full"><label>Prüfvermerk / Ergebnis</label><textarea id="wfNote" placeholder="Was wurde vorgelegt und was deckt die Vollmacht ab?"></textarea></div></div>
+ <div class="decision"><div class="actions"><button class="btn green" data-action="activeDecision" data-value="acceptpower">Vertretung akzeptieren</button><button class="btn" data-action="activeDecision" data-value="rejectpower">Vertretung ablehnen</button></div></div></div>`;
+
+ return `<div class="workcard"><div class="workhead">Beratung dokumentieren</div><div class="workgrid">
+ <div class="field full"><label>Frage</label><textarea id="wf1">${facts["Frage"]||a.problem||""}</textarea></div>
+ <div class="field"><label>Zuständiges Thema</label><select id="wf2"><option>Meldewesen</option><option>Dokumente</option><option>Parkservice</option><option>Fundservice</option></select></div>
+ <div class="field"><label>Weiterleitung?</label><select id="wf3"><option>Nein</option><option>Ja</option></select></div>
+ <div class="field full"><label>Antwort / Vermerk</label><textarea id="wfNote" placeholder="Formuliere deine Antwort"></textarea></div></div>
+ <div class="decision"><div class="actions"><button class="btn" data-action="showAdvice">Antwort am Display</button><button class="btn green" data-action="activeDecision" data-value="advise">Beratung abschließen</button></div></div></div>`;
+}
+function collectWork(){return {f1:$("#wf1")?.value||"",f2:$("#wf2")?.value||"",f3:$("#wf3")?.value||"",f4:$("#wf4")?.value||"",note:$("#wfNote")?.value||""}}
+function saveActiveWork(){if(!s.active)return;s.active.work=collectWork();save();toast("Bearbeitung zwischengespeichert")}
+function activeDecision(v){
+ if(!s.active)return;
+ s.active.work=collectWork();s.active.decision=v;
+ const labels={approve:"Meldeänderung übernommen",request:"Unterlagen nachfordern",approvepark:"Parkberechtigung bewilligt",rejectpark:"Parkberechtigung abgelehnt",report:"Verlustmeldung gespeichert",issue:"Dokument ausgegeben",hold:"Dokument nicht ausgegeben",createcert:"Meldebestätigung erstellt",reschedule:"Termin neu zugewiesen",walkin:"Als Laufkunde übernommen",acceptpower:"Vertretung akzeptiert",rejectpower:"Vertretung abgelehnt",advise:"Beratung abgeschlossen"};
+ send({mode:"decision",title:labels[v]||"Bearbeitung gespeichert",name:s.active.name,details:Object.values(s.active.work).filter(Boolean).slice(0,5)});
+ save();toast(labels[v]||"Entscheidung gespeichert");
+}
+function previewCertificate(){if(!s.active)return;let c=s.citizens.find(x=>x.id===s.active.citizen);send({mode:"document",title:"Meldebestätigung · Vorschau",name:c?.name||s.active.name,lines:[c?.address||"",$("#wf1")?.value||"",($("#wf3")?.value||"1")+" Ausfertigung(en)"]})}
+function showAdvice(){if(!s.active)return;send({mode:"advice",title:$("#wf2")?.value||"Information",question:$("#wf1")?.value||"",answer:$("#wfNote")?.value||"Noch keine Antwort eingetragen."})}
+function searchFoundFromActive(){view("found");$("#foundSearch").value=$("#wf1")?.value||"";searchFound()}
+
 function requirementsFor(con){const m={
 "Meldeangelegenheit":["Identität im Bürgerregister prüfen","bisherige Adresse vergleichen","Nachweis für die neue Unterkunft prüfen","neue Daten am Kundendisplay bestätigen lassen"],
 "Parkberechtigung":["Bürger-ID und Wohnadresse prüfen","Kennzeichen erfassen","Bezirk mit Adresse vergleichen","Gebühr am Kundendisplay anzeigen"],
@@ -129,7 +216,7 @@ function spawn(){let c=s.citizens[Math.floor(Math.random()*s.citizens.length)],p
 function call(num){if(s.paused)return toast("Schalter ist in Pause");let i=s.queue.findIndex(x=>x.n===num);if(i<0)return;s.active=s.queue.splice(i,1)[0];s.active.problem=s.active.problem||problemFor(s.active.concern,s.active.name);
 let ac=s.citizens.find(x=>x.id===s.active.citizen);if(ac&&!s.active.facts)s.active.facts=caseFacts(s.active.concern,ac);
 save();send({mode:"call",number:s.active.n,counter:"04",name:s.active.name});setTimeout(()=>welcome(),3000)}
-function next(){if(s.queue.length)call(s.queue[0].n);else toast("Keine wartenden Kunden")}function finish(){if(!s.active)return;s.served++;send({mode:"success",title:"Vorgang abgeschlossen",text:"Vielen Dank für Ihren Besuch im Stadtservice."});s.active=null;save();setTimeout(ads,2400)}
+function next(){if(s.queue.length)call(s.queue[0].n);else toast("Keine wartenden Kunden")}function finish(){if(!s.active)return;if(!s.active.decision)return toast("Zuerst im Arbeitsformular eine Entscheidung treffen");s.served++;send({mode:"success",title:"Vorgang abgeschlossen",text:"Vielen Dank für Ihren Besuch im Stadtservice."});s.active=null;save();setTimeout(ads,2400)}
 function openActiveCitizen(){if(!s.active)return;$("#citizenSearch").value=s.active.citizen;view("citizens");searchCitizen()}
 function showActive(){if(!s.active)return;send({mode:"service",title:s.active.concern,name:s.active.name,problem:s.active.problem||problemFor(s.active.concern,s.active.name),steps:requirementsFor(s.active.concern),facts:s.active.facts||caseFacts(s.active.concern,s.citizens.find(x=>x.id===s.active.citizen))})}
 function showVerification(){if(!s.active)return;let c=s.citizens.find(x=>x.id===s.active.citizen);send({mode:"verify",title:"Überprüfung erforderlich",subtitle:s.active.concern,person:c?c.name:s.active.name,fields:c?[["Bürger-ID",c.id],["Geburtsdatum",c.dob],["Adresse",c.address],["Dokument",c.doc+" · "+c.docStatus]]:[],provided:s.active.facts||caseFacts(s.active.concern,c),checks:requirementsFor(s.active.concern)})}
@@ -151,6 +238,6 @@ function takePayment(amount,label){amount=+amount;s.revenue+=amount;s.payments.p
 function renderCash(){$("#cashList").innerHTML=s.payments.length?s.payments.slice().reverse().map(p=>`<div class="panel row" style="margin-bottom:6px"><div><strong>${p.label}</strong><small>${p.time}</small></div><b>${money(p.amount)}</b></div>`).join(""):`<div class="panel panelbody">Noch keine Zahlungen.</div>`}
 function ads(){send({mode:"ads",paused:s.paused})}function welcome(){send({mode:"welcome",paused:s.paused})}function pause(){s.paused=!s.paused;save();s.paused?send({mode:"ads",paused:true}):welcome()}
 function modal(h){$("#modal").innerHTML=h;$("#modalbg").classList.remove("hidden")}function closeModal(){$("#modalbg").classList.add("hidden")}
-function handle(b){let a=b.dataset.action;({spawn,next,call:()=>call(b.dataset.num),finish,openActiveCitizen,showActive,showVerification,goRelevant,searchCitizen,selectCitizen:()=>selectCitizen(b.dataset.id),citizenDisplay,useForAddress,previewAddress,saveAddress,parkingCheck,parkingPay,searchFound,searchDocs,docDisplay:()=>docDisplay(b.dataset.id),newCase,resolveCase:()=>resolveCase(b.dataset.id),takePayment:()=>takePayment(b.dataset.amount,b.dataset.label),ads,welcome,pause,closeModal}[a]||(()=>{}))()}
+function handle(b){let a=b.dataset.action;({spawn,next,call:()=>call(b.dataset.num),finish,openActiveCitizen,showActive,showVerification,goRelevant,saveActiveWork,activeDecision:()=>activeDecision(b.dataset.value),previewCertificate,showAdvice,searchFoundFromActive,searchCitizen,selectCitizen:()=>selectCitizen(b.dataset.id),citizenDisplay,useForAddress,previewAddress,saveAddress,parkingCheck,parkingPay,searchFound,searchDocs,docDisplay:()=>docDisplay(b.dataset.id),newCase,resolveCase:()=>resolveCase(b.dataset.id),takePayment:()=>takePayment(b.dataset.amount,b.dataset.label),ads,welcome,pause,closeModal}[a]||(()=>{}))()}
 document.addEventListener("click",e=>{let v=e.target.closest("[data-view]");if(v){view(v.dataset.view);return}let b=e.target.closest("[data-action]");if(b)handle(b)});$("#modalbg").addEventListener("click",e=>{if(e.target===$("#modalbg"))closeModal()});$("#openDisplay").onclick=()=>window.open("customer-display.html","STADTSERVICE_DISPLAY","width=1280,height=800");setInterval(()=>$("#clock").textContent=new Date().toLocaleTimeString("de-AT"),1000);render();ads()})();
 </script></body></html>
